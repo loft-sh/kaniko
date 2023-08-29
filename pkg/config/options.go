@@ -88,6 +88,9 @@ type KanikoOptions struct {
 	ForceBuildMetadata       bool
 	InitialFSUnpacked        bool
 	SkipPushPermissionCheck  bool
+
+	// NewOptions
+	Unpack bool
 }
 
 type KanikoGitOptions struct {

@@ -325,6 +325,9 @@ func (s *stageBuilder) build() error {
 	if s.stage.Index == 0 && s.opts.InitialFSUnpacked {
 		shouldUnpack = false
 	}
+	if s.opts.Unpack {
+		shouldUnpack = true
+	}
 
 	if shouldUnpack {
 		t := timing.Start("FS Unpacking")
