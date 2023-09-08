@@ -106,6 +106,15 @@ func AddToIgnoreList(entry IgnoreListEntry) {
 	})
 }
 
+func RemoveFromIgnoreList(removeEntry IgnoreListEntry) {
+	for i, entry := range ignorelist {
+		if entry.Path == removeEntry.Path && entry.PrefixMatchOnly == removeEntry.PrefixMatchOnly {
+			ignorelist = append(ignorelist[:i], ignorelist[i+1:]...)
+			break
+		}
+	}
+}
+
 func AddToDefaultIgnoreList(entry IgnoreListEntry) {
 	defaultIgnoreList = append(defaultIgnoreList, IgnoreListEntry{
 		Path:            filepath.Clean(entry.Path),
